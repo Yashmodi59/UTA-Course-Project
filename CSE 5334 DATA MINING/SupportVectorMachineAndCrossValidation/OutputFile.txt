@@ -1,0 +1,99 @@
+UTA ID : 1002086296
+Name : Yash Modi
+
+"C:\Program Files\Python38\python.exe" "D:/FALL 2022/Submission/1002086296_PA2.py"
+
+- - - - - - - - -  - - - TASK 1 - - - - - - - - - -- - - - - - - - - - - -
+
+CLASSIFICATION USING SVM
+No. of players in each Position
+SG    122
+PF    104
+PG     96
+C      90
+SF     85
+Name: Pos, dtype: int64
+Shape of dataset
+(497, 29)
+Columns in dataset
+Index(['Player', 'Pos', 'Age', 'Tm', 'G', 'GS', 'MP', 'FG', 'FGA', 'FG%', '3P',
+       '3PA', '3P%', '2P', '2PA', '2P%', 'eFG%', 'FT', 'FTA', 'FT%', 'ORB',
+       'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS'],
+      dtype='object')
+Feature Column List
+['FG%', '3P%', '2P%', 'eFG%', 'FT%', 'ORB', 'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS']
+Class column name:    Pos
+     FG%    3P%    2P%   eFG%    FT%  ORB  ...  AST  STL  BLK  TOV   PF   PTS
+0  0.590  0.000  0.590  0.590  0.561  1.3  ...  0.6  0.4  0.5  1.0  1.9   6.5
+1  0.125  0.000  0.167  0.125  0.000  0.0  ...  0.3  0.0  0.0  0.0  0.2   0.3
+2  0.603  0.000  0.606  0.603  0.468  4.3  ...  2.1  1.0  0.6  1.7  1.9   8.0
+3  0.573  0.400  0.576  0.576  0.841  1.9  ...  5.3  1.0  1.0  3.0  2.6  19.9
+4  0.476  0.358  0.525  0.529  0.762  0.8  ...  1.9  0.4  0.9  0.9  1.5  14.1
+
+[5 rows x 14 columns]
+Prediction:
+['SG' 'SG' 'PF' 'PF' 'SG' 'PF' 'PG' 'C' 'SG' 'SF' 'SG' 'PF' 'PG' 'PG' 'PF'
+ 'SF' 'SG' 'PF' 'C' 'SG' 'PG' 'PG' 'PF' 'PF' 'PG' 'PG' 'PG' 'SG' 'PG' 'PG'
+ 'PG' 'SG' 'SG' 'PF' 'PF' 'PF' 'PF' 'PG' 'PF' 'PF' 'PG' 'C' 'SG' 'SG' 'SG'
+ 'PG' 'SG' 'SF' 'SG' 'PF' 'PF' 'PF' 'SG' 'C' 'SG' 'SG' 'SG' 'PF' 'PG' 'SG'
+ 'SG' 'C' 'PF' 'PG' 'PF' 'C' 'SF' 'C' 'SG' 'PF' 'SF' 'SF' 'SG' 'C' 'SG'
+ 'C' 'SG' 'PG' 'C' 'PG' 'C' 'PG' 'SG' 'SG' 'PG' 'C' 'C' 'SF' 'PF' 'PF'
+ 'PG' 'PG' 'C' 'SG' 'SF' 'C' 'PF' 'SF' 'SF' 'C' 'SG' 'SG' 'SG' 'C' 'PF'
+ 'SF' 'SG' 'SG' 'PF' 'PF' 'C' 'PG' 'PG' 'PG' 'C' 'C' 'PG' 'PF' 'PF' 'SG'
+ 'PG' 'SG' 'C' 'C' 'SF']
+
+- - - - - - - - -  - - - TASK 2 - - - - - - - - - -- - - - - - - - - - - -
+
+Accuracy: 
+Training set accuracy:  0.6129032258064516
+Test Set Accuracy:  0.568
+
+- - - - - - - - -  - - - TASK 3 - - - - - - - - - -- - - - - - - - - - - -
+
+Confusion matrix:
+Predicted   C  PF  PG  SF  SG  All
+True                              
+C          18   5   0   0   0   23
+PF          3  13   2   2   5   25
+PG          1   0  19   0   6   26
+SF          0  11   2   2  11   26
+SG          0   2   8   1  14   25
+All        22  31  31   5  36  125
+
+- - - - - - - - -  - - - TASK 4 - - - - - - - - - -- - - - - - - - - - - -
+
+10-fold stratified cross-validation
+
+- - - - - - - - -  - - - TASK 5 - - - - - - - - - -- - - - - - - - - - - -
+
+Mean of 10-fold stratified cross-validation
+Cross-validation scores: [0.5        0.42       0.5        0.56       0.5        0.44
+ 0.52       0.53061224 0.55102041 0.51020408]
+Average cross-validation score: 0.503
+
+- - - - - - - - -  - - - TASK 6 - - - - - - - - - -- - - - - - - - - - - -
+
+- There are some 0.00 values in 3P, 2P in the given dataset try to remove this value but getting average of that particular column or dropping that row is not increasing the accuracy.
+- Dropping the row if minutes per game is less than 2 minutes, as playing such less minutes not increase the accuracy.
+- Dropping the column team name, player name and age, as it will not be much significant in predicting the position
+- All this led to increase my accuracy to reach 40% on test set
+
+- Now further more to remove some outlier, I removed FG, FGA, 3P, 3PA, 2P, 2PA, FT, FTA as they are increasing the ouliers and also moreover FG% is FG/FGA*100 and so on
+
+- Tried standard scaler but it wont affect 
+- MODEL SELECTION: Support Vector Machine
+- From different parameters present in SVM lib, Kernel, C and gamma used and other parameters as default
+
+C : l2 regularization parameter. which is inversely to strength of regularization. if C is less decision boundary with a large margin will be selected and c is more so viceversa. C is more leads to reduce misclassification
+kernel: training dataset into higher dimensions to make it linearly separatable.
+gamma : The gamma parameter highly impacts the model performance. Changing value results into more accuracy difference. Gamma small, influence radius is high amd gamma large, influence radius is low. large gamma prevent overfitting
+
+tried combination: C : [1,10,100,1000,1000] , kernel : ['rbf', 'linear', 'poly'] , gamma : [1,0.1,0.01,0.001,0.0001,0.00001]
+
+Choosing kernel as poly overfit the model too much getting training accuracy as 90% or 100% but testing accuracy as only 30%.
+Now between rbf and linear, linear gives more less training accuracy but more test and average of cross validation. So I chose linear over rbf.
+
+C = 10000 is getting overfitted so I chose 1000 as C value.
+Gamma value i have chosen as 0.0001 as it will increase importance in classifying each point correctly. 
+
+So I chose SVC(kernel='linear', C=1000, gamma=0.0001).

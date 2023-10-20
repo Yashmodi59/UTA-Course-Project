@@ -1,0 +1,18 @@
+Evalution function for Depth Limited Alpha Beta pruning
+    
+    
+def eval_state(num_red, num_blue, maximizing):
+    """
+    The Helper Function to evaluate the total number of marble and then evaluating based on final leaf node 
+    """
+    su = num_red+num_blue # sum of marbles
+    if maximizing: # checking for maximizing
+        if su % 2 == 1:
+            return 2 +evaluate_state(num_red,num_blue) # normal evaluation of state with addition of 2
+        else:
+            return -2 -evaluate_state(num_red,num_blue) # negetive normal evalution of state with addition of -2
+    else:
+        if su % 2 == 1:
+            return 2 + evaluate_state(num_red,num_blue)
+        else:
+            return -2 - evaluate_state(num_red,num_blue)

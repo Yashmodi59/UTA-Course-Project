@@ -1,0 +1,20 @@
+evaluate_state(num_red, num_blue): 
+This is a helper function that evaluates the current state of the game and returns the score of the current state for the computer player. The function calculates the score based on the number of red and blue marbles, with a weight of 2 for red and 3 for blue.
+
+eval_state(num_red, num_blue, maximizing): 
+This function is a helper function used to evaluate the total number of marbles and then evaluate the score of the final leaf node. The function takes in the number of red and blue marbles and a boolean value indicating whether the function should be maximizing or not. The function first calculates the sum of the red and blue marbles and checks if the sum is odd or even. If it's odd and the function should be maximizing, it returns the score of the current state plus 2. If it's even and the function should be maximizing, it returns the score of the current state minus 2. If it's odd and the function should not be maximizing, it returns the score of the current state plus 2. If it's even and the function should not be maximizing, it returns the score of the current state minus 2.
+
+is_terminal(num_red, num_blue): 
+This function checks whether the current state of the game is terminal, i.e., whether there are no more moves to be made.
+
+get_poss_moves(num_red, num_blue): 
+This function returns all possible moves for the current state of the game. If the number of red marbles is zero, it returns a tuple with 0 red marbles and 1 less blue marble. If the number of blue marbles is zero, it returns a tuple with 1 less red marble and 0 blue marbles. If both red and blue marbles are greater than 0, it returns a tuple with 1 less red marble and the same number of blue marbles, and a tuple with the same number of red marbles and 1 less blue marble.
+
+alpha_beta_d(num_red, num_blue, maximizing, alpha, beta, depth): 
+This function applies the Minimax algorithm with Alpha-beta pruning to find the best strategy. The function takes in the number of red and blue marbles, a boolean value indicating whether the function should be maximizing or not, alpha and beta values for pruning, and the current depth. If the current state is terminal or the current depth is 0, it returns the score of the current state. If the function should be maximizing, it sets the initial best value to negative infinity and loops over all possible moves, recursively calling the function for each move and updating the best value and alpha value. If the beta value is less than or equal to the alpha value, the function breaks out of the loop. If the function should not be maximizing, it sets the initial best value to positive infinity and loops over all possible moves, recursively calling the function for each move and updating the best value and beta value. If the beta value is less than or equal to the alpha value, the function breaks out of the loop. Finally, the function returns the best value.
+
+alpha_beta(num_red, num_blue, maximizing, alpha, beta): 
+This function applies the Minimax algorithm with Alpha-beta pruning to find the best strategy. The function is similar to the alpha_beta_d function, except it does not take in the current depth and handles terminal states differently.
+
+red_blue_nim_d(num_red, num_blue, first_player="computer", depth=3): 
+This function is the main function that plays the game. It takes in the number of red and blue marbles

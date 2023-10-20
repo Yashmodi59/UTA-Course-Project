@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Weather Information</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="weather.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9eJpZBG69OnnT_KxIX6uCSLUkPNDbiXo&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
+  </head>
+  <body onload="initialize();">
+    <div style="text-align: center; background-color: #fff;
+      padding: 20px; border: 1px solid #ccc;border-radius: 4px;">
+      <!-- add form to take response -->
+    <form>
+      <label>City: <input type="text" id="city" /></label>
+      <input type="button" onclick="sendRequest();" value="Get Weather"/>
+    </form>
+    </div>
+
+    <!-- initialize map of size with 600*500px, and some css to center it -->
+    <div id="map" class="map-container" style="width: 600px; height: 500px; border: 1px solid #ccc; border-radius: 4px; padding: 20px; margin: 0 auto;"></div>
+    <!-- initialize display area of with some css to beautify it -->
+    <div id="output" style="margin-top: 20px; padding: 10px; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px;">Display Area</div>
+</body>
+</html>

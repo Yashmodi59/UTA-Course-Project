@@ -1,0 +1,114 @@
+
+Initializing the TM
+
+leaving TM initialization
+// serializable history
+// serializable history
+// 2 transactions (no conflicts)
+// 2 transactions (no conflicts)
+// same object accessed
+// same object accessed
+// multiple times
+// multiple times
+Log no_conflicts_2Txs.log
+Log file name:no_conflicts_2Txs.log
+
+entering openlog
+
+Given log file name: (null)
+leaving openlog
+BeginTx 1 R
+BeginTx : 1
+
+TxType : R
+
+
+creating BeginTx thread for Tx: 1
+
+finished creating BeginTx thread for Tx: 1
+Read    1 1
+Read : 1 : 1
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+Read    1 2
+Read : 1 : 2
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+BeginTx 2 W
+BeginTx : 2
+
+TxType : W
+
+
+creating BeginTx thread for Tx: 2
+
+finished creating BeginTx thread for Tx: 2
+Read    2 8
+Read : 2 : 8
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+Read    2 7
+Read : 2 : 7
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+Write   2 6
+Write : 2 : 6
+
+
+creating TxWrite thread for Tx: 2
+
+exiting TxWrite thread create for Tx: 2
+Write   2 5
+Write : 2 : 5
+
+
+creating TxWrite thread for Tx: 2
+
+exiting TxWrite thread create for Tx: 2
+Commit  2
+Commit : 2
+
+
+creating TxCommit thread for Tx: 2
+
+exiting TxCommit thread create for Tx: 2
+read    1 3
+Read : 1 : 3
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+read    1 4
+Read : 1 : 4
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+Commit  1
+Commit : 1
+
+
+creating TxCommit thread for Tx: 1
+
+exiting TxCommit thread create for Tx: 1
+end all
+Release all resources and exit:
+
+
+Entering End of schedule thread with thrNum: 12
+Wait for threads and cleanup
+Thread 0 completed with ret value: 0
