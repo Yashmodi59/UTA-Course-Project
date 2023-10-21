@@ -1,6 +1,6 @@
 <?php
   // put your API key here:
-  $appid = "89a64415ff9355b28133c8d646133db0";
+  $appid = ""
 
   header("Content-type: application/json\n\n");
   $params = $_SERVER['QUERY_STRING'];
