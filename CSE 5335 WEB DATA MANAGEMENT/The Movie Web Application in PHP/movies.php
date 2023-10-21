@@ -3,7 +3,7 @@
 // 1002086296
 // Yash Jitendra Modi
 session_start();
-$_SESSION['api_key'] = "b0cf398bca93a1cfbb52c3b57e4e6c69"; // API key is store in the session I know it vulnerable to attack but righ now i am storing to use it everywhere
+$_SESSION['api_key'] = ""; // API key is store in the session I know it vulnerable to attack but righ now i am storing to use it everywhere
 ?>
 <!DOCTYPE html>
 <html>
